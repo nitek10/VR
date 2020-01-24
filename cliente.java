@@ -1,3 +1,4 @@
+package proyecto;
 public class cliente {
 	boolean administrador=false;
 	int pregunta_seguridad;
@@ -15,5 +16,8 @@ public class cliente {
 				correcto=true;
 			}
 		return correcto;
+	}
+	public boolean getAdministrador() {
+		return administrador;
 	}
 }
