@@ -5,11 +5,13 @@ public class main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ArrayList<cliente> array_clientes = new ArrayList<cliente>();
+		ArrayList<equipos> array_equipos = new ArrayList<equipos>();
 		/*ArrayList<reserva> array_reservas = new ArrayList<reserva>();*/
 		int opcion, pregunta_seguridad;
-		int borrar=0;
+		int borrar=0, salas, ordenadores, contador_salas=1, contador_ordenadores=1;
 		String usuario, contraseña, respuesta_seguridad, correo_electronico, fecha;
 		String nombre, metodo_de_pago;
+		Double precio_sala_hora, precio_sala_ordenador;
 		Scanner teclado=new Scanner(System.in);
 		/*System.out.println("Usuario:");
 		usuario=teclado.nextLine();
@@ -39,6 +41,30 @@ public class main {
 								System.out.println("Sesion inciada correctamente");
 								if(i.getAdministrador()==true){
 									/*Menu de administrador*/
+									System.out.println("1.Añadir salas y ordenadores\n"+
+									"2.Hacer reserva"+
+											"3.Gestionar Cuentas");
+										opcion=teclado.nextInt();
+										teclado.nextLine();
+										switch(opcion) {
+										/*Aqui crearemos la cantidad de salas y ordenadores en funcion de lo que introduzca el usuario. Como cada sala y ordenador va a tener un id 
+										 * creamos dos contadores para que el id se vaya incrementando.*/
+										/*Probablemente vayamos a crear una clase que se llame precios para poder crear la hora el tipo y la cantidad de dinero por hora.*/
+											case 1:
+												System.out.println("¿Cuántas salas quieres añadir?");
+												salas=teclado.nextInt();
+												System.out.println("¿Cuántos ordenadores quieres añadir?");
+												ordenadores=teclado.nextInt();
+												for(int j=0; j<salas; j++) {
+													array_equipos.add(new equipos(contador_salas,"sala"));
+													contador_salas++;
+												}
+												for(int j=0; j<ordenadores; j++) {
+													array_equipos.add(new equipos(contador_ordenadores,"ordenador"));
+													contador_ordenadores++;
+												}
+												break;
+										}
 								}else{
 									/*Menu de clientes*/
 								}
