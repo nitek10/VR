@@ -10,4 +10,7 @@ public class equipos {
 		this.id=id;
 		this.tipo=tipo;
 	}
+	public int getId() {
+		return id;
+	}
 }
